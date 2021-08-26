@@ -54,6 +54,11 @@ namespace FaceBookApplication.DbContexts
                     .HasMaxLength(500)
                     .HasColumnName("strEndUserConfirmPassword");
 
+                entity.Property(e => e.StrEndUserGender)
+                    .IsRequired()
+                    .HasMaxLength(500)
+                    .HasColumnName("strEndUserGender");
+
                 entity.Property(e => e.StrEndUserName)
                     .IsRequired()
                     .HasMaxLength(500)
@@ -63,6 +68,11 @@ namespace FaceBookApplication.DbContexts
                     .IsRequired()
                     .HasMaxLength(500)
                     .HasColumnName("strEndUserPassword");
+
+                entity.Property(e => e.StrEndUserPhoneNo)
+                    .IsRequired()
+                    .HasMaxLength(500)
+                    .HasColumnName("strEndUserPhoneNo");
 
                 entity.Property(e => e.StrEndUserRoleName)
                     .IsRequired()

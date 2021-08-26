@@ -14,6 +14,8 @@ namespace FaceBookApplication.Models.Read
 
         public long IntEndUserId { get; set; }
         public string StrEndUserName { get; set; }
+        public string StrEndUserPhoneNo { get; set; }
+        public string StrEndUserGender { get; set; }
         public string StrEndUserPassword { get; set; }
         public string StrEndUserConfirmPassword { get; set; }
         public long IntEndUserRoleId { get; set; }

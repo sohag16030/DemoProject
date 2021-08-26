@@ -7,10 +7,13 @@ namespace FaceBookApplication.Models.Write
 {
     public partial class TblPost
     {
-        public long PostId { get; set; }
-        public string PostDescription { get; set; }
-        public DateTime PostDate { get; set; }
+        public long IntPostId { get; set; }
+        public long IntEndUserId { get; set; }
+        public string StrPostDescription { get; set; }
+        public DateTime DtePostDate { get; set; }
         public bool IsActive { get; set; }
-        public DateTime LastActionDateTime { get; set; }
+        public DateTime DteLastActionDateTime { get; set; }
+
+        public virtual TblEndUser IntEndUser { get; set; }
     }
 }

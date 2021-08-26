@@ -36,44 +36,78 @@ namespace FaceBookApplication.DbContexts
 
             modelBuilder.Entity<TblEndUser>(entity =>
             {
-                entity.HasKey(e => e.EndUserId);
+                entity.HasKey(e => e.IntEndUserId);
 
                 entity.ToTable("tblEndUser");
 
-                entity.Property(e => e.EndUserConfirmPassword)
-                    .IsRequired()
-                    .HasMaxLength(500);
+                entity.Property(e => e.IntEndUserId).HasColumnName("intEndUserId");
 
-                entity.Property(e => e.EndUserName)
-                    .IsRequired()
-                    .HasMaxLength(500);
-
-                entity.Property(e => e.EndUserPassword)
-                    .IsRequired()
-                    .HasMaxLength(500);
-
-                entity.Property(e => e.EndUserRoleName)
-                    .IsRequired()
-                    .HasMaxLength(500);
-
-                entity.Property(e => e.LastActionDateTime)
+                entity.Property(e => e.DteLastActionDateTime)
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.IntEndUserRoleId).HasColumnName("intEndUserRoleId");
+
+                entity.Property(e => e.StrEndUserConfirmPassword)
+                    .IsRequired()
+                    .HasMaxLength(500)
+                    .HasColumnName("strEndUserConfirmPassword");
+
+                entity.Property(e => e.StrEndUserGender)
+                    .IsRequired()
+                    .HasMaxLength(500)
+                    .HasColumnName("strEndUserGender");
+
+                entity.Property(e => e.StrEndUserName)
+                    .IsRequired()
+                    .HasMaxLength(500)
+                    .HasColumnName("strEndUserName");
+
+                entity.Property(e => e.StrEndUserPassword)
+                    .IsRequired()
+                    .HasMaxLength(500)
+                    .HasColumnName("strEndUserPassword");
+
+                entity.Property(e => e.StrEndUserPhoneNo)
+                    .IsRequired()
+                    .HasMaxLength(500)
+                    .HasColumnName("strEndUserPhoneNo");
+
+                entity.Property(e => e.StrEndUserRoleName)
+                    .IsRequired()
+                    .HasMaxLength(500)
+                    .HasColumnName("strEndUserRoleName");
             });
 
             modelBuilder.Entity<TblPost>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.IntPostId);
 
                 entity.ToTable("tblPost");
 
-                entity.Property(e => e.LastActionDateTime).HasColumnType("datetime");
+                entity.Property(e => e.IntPostId).HasColumnName("intPostId");
 
-                entity.Property(e => e.PostDate).HasColumnType("datetime");
+                entity.Property(e => e.DteLastActionDateTime)
+                    .HasColumnType("datetime")
+                    .HasColumnName("dteLastActionDateTime")
+                    .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.PostDescription)
+                entity.Property(e => e.DtePostDate)
+                    .HasColumnType("datetime")
+                    .HasColumnName("dtePostDate");
+
+                entity.Property(e => e.IntEndUserId).HasColumnName("intEndUserId");
+
+                entity.Property(e => e.StrPostDescription)
                     .IsRequired()
-                    .HasMaxLength(500);
+                    .HasMaxLength(500)
+                    .HasColumnName("strPostDescription");
+
+                entity.HasOne(d => d.IntEndUser)
+                    .WithMany(p => p.TblPost)
+                    .HasForeignKey(d => d.IntEndUserId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_tblPost_tblEndUser");
             });
 
             OnModelCreatingPartial(modelBuilder);

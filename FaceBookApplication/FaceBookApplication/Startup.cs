@@ -1,6 +1,8 @@
+using FaceBookApplication.DbContexts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -20,7 +22,7 @@ namespace FaceBookApplication
 
         private void RegisterServices(IServiceCollection services)
         {
-            //DependencyContainer.RegisterServices(services);
+            DependencyContainer.RegisterServices(services);
 
         }
         public IConfiguration Configuration { get; }
@@ -32,14 +34,13 @@ namespace FaceBookApplication
             services.AddSwaggerGen();
 
             var data = Configuration.GetConnectionString("Development");
-            //services.AddDbContext<ReadDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Development")), ServiceLifetime.Transient);
-            //services.AddDbContext<WriteDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Development")), ServiceLifetime.Transient);
+            services.AddDbContext<ReadDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Development")), ServiceLifetime.Transient);
+            services.AddDbContext<WriteDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Development")), ServiceLifetime.Transient);
 
             RegisterServices(services);
-            //services.AddTransient<IUser, User>();
-            //services.AddTransient<IPost, Post>();
+            
         }
-
+       
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {

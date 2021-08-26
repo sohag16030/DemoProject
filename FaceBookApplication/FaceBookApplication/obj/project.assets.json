@@ -6127,11 +6127,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sohag\\Desktop\\FaceBookApplication\\FaceBookApplication\\FaceBookApplication.csproj",
+      "projectUniqueName": "I:\\DemoProject\\FaceBookApplication\\FaceBookApplication\\FaceBookApplication.csproj",
       "projectName": "FaceBookApplication",
-      "projectPath": "C:\\Users\\Sohag\\Desktop\\FaceBookApplication\\FaceBookApplication\\FaceBookApplication.csproj",
+      "projectPath": "I:\\DemoProject\\FaceBookApplication\\FaceBookApplication\\FaceBookApplication.csproj",
       "packagesPath": "C:\\Users\\Sohag\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sohag\\Desktop\\FaceBookApplication\\FaceBookApplication\\obj\\",
+      "outputPath": "I:\\DemoProject\\FaceBookApplication\\FaceBookApplication\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
