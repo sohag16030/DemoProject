@@ -42,11 +42,14 @@ namespace FaceBookApplication.Repository
 
         public async Task<MessageHelper> RegisterEndUser(CreateEndUserDTO objCreate)
         {
-            var duplicateEndUserNameCheck = (from a in _contextR.TblEndUser where a.StrEndUserName.Trim().ToLower() == objCreate.EndUserName.Trim().ToLower() select a.StrEndUserName).FirstOrDefault();
+            var duplicateEndUserNameCheck = (from a in _contextR.TblEndUser
+                                             where a.StrEndUserName.Trim().ToLower() == objCreate.EndUserName.Trim().ToLower()
+                                             && a.StrEndUserPhoneNo.Trim().ToLower() == objCreate.EndUserPhoneNo.Trim().ToLower()
+                                             select a.StrEndUserName).FirstOrDefault();
 
             if (duplicateEndUserNameCheck != null)
             {
-                throw new Exception("UserName Already Exist");
+                throw new Exception("User Already Exist");
             }
 
             var userObj = new Models.Write.TblEndUser

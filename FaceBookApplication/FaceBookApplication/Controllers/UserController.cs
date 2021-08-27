@@ -20,7 +20,7 @@ namespace FaceBookApplication.Controllers
             _IRepository = IRepository;
         }
         [HttpPost]
-        [Route("CreateEndUser")]
+        [Route("Admin/CreateEndUser")]
         [SwaggerOperation(Description = "Example { }")]
         public async Task<MessageHelper> CreateEndUser(CreateEndUserDTO objCreate)
         {
@@ -34,5 +34,40 @@ namespace FaceBookApplication.Controllers
                 throw ex;
             }
         }
+        [HttpGet]
+        [Route("Admin/GetEndUserById")]
+        [SwaggerOperation(Description = "Example { }")]
+        public async Task<IActionResult> GetEndUserById(long enduserId)
+        {
+            try
+            {
+                var dt = await _IRepository.GetEndUserById(enduserId);
+                if (dt == null)
+                {
+                    return NotFound();
+                }
+                return Ok(dt);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        [HttpPost]
+        [Route("Admin/EditEditEndUserById")]
+        [SwaggerOperation(Description = "Example { ")]
+        public async Task<MessageHelper> EditEndUserById(EditEndUserByIdDTO objEdit)
+        {
+            try
+            {
+                var msg = await _IRepository.EditEndUserById(objEdit);
+                return msg;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

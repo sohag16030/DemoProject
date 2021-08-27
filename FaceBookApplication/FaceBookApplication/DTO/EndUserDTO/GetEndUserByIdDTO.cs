@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace FaceBookApplication.DTO.EndUserDTO
 {
-    public class GetEndUserInfoByIdDTO
+    public class GetEndUserByIdDTO
     {
         public string EndUserName { get; set; }
         public string EndUserPhoneNo { get; set; }

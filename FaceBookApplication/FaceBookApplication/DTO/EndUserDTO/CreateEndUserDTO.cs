@@ -12,7 +12,6 @@ namespace FaceBookApplication.DTO.EndUserDTO
         public string EndUserGender { get; set; }
         public string EndUserPassword { get; set; }
         public string EndUserConfirmPassword { get; set; }
-        public long EndUserRoleId { get; set; }
         public string EndUserRoleName { get; set; }
         public bool Active { get; set; }
     }
