@@ -56,7 +56,6 @@ namespace FaceBookApplication.Repository
                 StrEndUserPhoneNo = objCreate.EndUserPhoneNo,
                 StrEndUserPassword = objCreate.EndUserPassword,
                 StrEndUserConfirmPassword = objCreate.EndUserConfirmPassword,
-                IntEndUserRoleId = objCreate.EndUserRoleId,
                 StrEndUserRoleName = objCreate.EndUserRoleName,
                 IsActive = true
             };

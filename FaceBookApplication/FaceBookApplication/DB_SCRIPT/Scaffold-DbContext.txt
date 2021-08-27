@@ -5,5 +5,5 @@ scaffold-DbContext "Data Source=DESKTOP-Q0CV5UU;Database=SocialMediaDB;Trusted_C
 
 **** Read Scaffold **********************
 
-scaffold-DbContext "Data Source=DESKTOP-Q0CV5UU;Database=SocialMediaDB;Trusted_Connection=True;MultipleActiveResultSets=true;ApplicationIntent=ReadWrite;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir "Models/Read" -ContextDir "DbContexts" -Context "ReadDbContext" -NoPluralize -t dbo.tblEndUser,dbo.tblPost,dbo.tblEndUserType -f 
+scaffold-DbContext "Data Source=DESKTOP-Q0CV5UU;Database=SocialMediaDB;Trusted_Connection=True;MultipleActiveResultSets=true;ApplicationIntent=ReadWrite;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir "Models/Read" -ContextDir "DbContexts" -Context "ReadDbContext" -NoPluralize -t dbo.tblEndUser,dbo.tblPost -f 
 

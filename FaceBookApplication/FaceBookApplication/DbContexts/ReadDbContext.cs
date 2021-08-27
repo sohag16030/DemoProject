@@ -19,7 +19,6 @@ namespace FaceBookApplication.DbContexts
         }
 
         public virtual DbSet<TblEndUser> TblEndUser { get; set; }
-        public virtual DbSet<TblEndUserType> TblEndUserType { get; set; }
         public virtual DbSet<TblPost> TblPost { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -47,8 +46,6 @@ namespace FaceBookApplication.DbContexts
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.IntEndUserRoleId).HasColumnName("intEndUserRoleId");
-
                 entity.Property(e => e.StrEndUserConfirmPassword)
                     .IsRequired()
                     .HasMaxLength(500)
@@ -73,27 +70,6 @@ namespace FaceBookApplication.DbContexts
                     .IsRequired()
                     .HasMaxLength(500)
                     .HasColumnName("strEndUserPhoneNo");
-
-                entity.Property(e => e.StrEndUserRoleName)
-                    .IsRequired()
-                    .HasMaxLength(500)
-                    .HasColumnName("strEndUserRoleName");
-
-                entity.HasOne(d => d.IntEndUserRole)
-                    .WithMany(p => p.TblEndUser)
-                    .HasForeignKey(d => d.IntEndUserRoleId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_tblEndUser_tblEndUserType");
-            });
-
-            modelBuilder.Entity<TblEndUserType>(entity =>
-            {
-                entity.HasKey(e => e.IntEndUserRoleId)
-                    .HasName("PK_tblEndUserType_1");
-
-                entity.ToTable("tblEndUserType");
-
-                entity.Property(e => e.IntEndUserRoleId).HasColumnName("intEndUserRoleId");
 
                 entity.Property(e => e.StrEndUserRoleName)
                     .IsRequired()

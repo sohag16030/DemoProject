@@ -46,8 +46,6 @@ namespace FaceBookApplication.DbContexts
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.IntEndUserRoleId).HasColumnName("intEndUserRoleId");
-
                 entity.Property(e => e.StrEndUserConfirmPassword)
                     .IsRequired()
                     .HasMaxLength(500)
