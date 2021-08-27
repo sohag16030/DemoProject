@@ -53,7 +53,7 @@ namespace FaceBookApplication.Controllers
                 throw ex;
             }
         }
-        [HttpPost]
+        [HttpPut]
         [Route("Admin/EditEditEndUserById")]
         [SwaggerOperation(Description = "Example { ")]
         public async Task<MessageHelper> EditEndUserById(EditEndUserByIdDTO objEdit)
@@ -69,7 +69,7 @@ namespace FaceBookApplication.Controllers
             }
         }
         [HttpGet]
-        [Route("EndUserLandingPasignation")]
+        [Route("Admin/EndUserLandingPasignation")]
         [SwaggerOperation(Description = "Example { }")]
         public async Task<IActionResult> EndUserLandingPasignation(string search, long PageNo, long PageSize, string viewOrder)
         {
