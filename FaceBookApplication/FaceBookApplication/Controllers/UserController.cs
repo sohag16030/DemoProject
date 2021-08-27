@@ -68,6 +68,25 @@ namespace FaceBookApplication.Controllers
                 throw ex;
             }
         }
+        [HttpGet]
+        [Route("EndUserLandingPasignation")]
+        [SwaggerOperation(Description = "Example { }")]
+        public async Task<IActionResult> EndUserLandingPasignation(string search, long PageNo, long PageSize, string viewOrder)
+        {
+            try
+            {
+                var dt = await _IRepository.EndUserLandingPasignation(search, PageNo, PageSize, viewOrder);
+                if (dt == null)
+                {
+                    return NotFound();
+                }
+                return Ok(dt);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
     }
 }
